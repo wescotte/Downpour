@@ -1,0 +1,77 @@
+# Project: Project1
+# Makefile created by Dev-C++ 4.9.8.5
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = DownPour_private.res
+OBJ  = Board.o DownPour.o Image.o Font.o GUILib.o ImageManip.o TextWin.o Timer.o Button.o Text.o GameData.o Settings.o System.o Network.o Piece.o Scores.o $(RES)
+LINKOBJ  = Board.o DownPour.o Image.o Font.o GUILib.o ImageManip.o TextWin.o Timer.o Button.o Text.o GameData.o Settings.o System.o Network.o Piece.o Scores.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -L"C:/sdl/files-1.2.6" -mwindows -lmingw32 -lSDLmain -lSDL  -lSDL_net -l SDL_ttf 
+INCS =  -I"C:/Dev-Cpp/include"  -I"C:/sdl/SDL-1.2.6/include"  -I"C:/sdl/SDL_net-1.2.5/include"  -I"C:/sdl/SDL_ttf-2.0.6/include" 
+CXXINCS =  -I"C:/Dev-Cpp/include/c++"  -I"C:/Dev-Cpp/include/c++/mingw32"  -I"C:/Dev-Cpp/include/c++/backward"  -I"C:/Dev-Cpp/include"  -I"C:/sdl/SDL-1.2.6/include"  -I"C:/sdl/SDL_net-1.2.5/include"  -I"C:/sdl/SDL_ttf-2.0.6/include" 
+BIN  = DownPour.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS = $(INCS) 
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before DownPour.exe all-after
+
+
+clean: clean-custom
+	rm -f $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "DownPour.exe" $(LIBS)
+
+Board.o: Board.cpp
+	$(CPP) -c Board.cpp -o Board.o $(CXXFLAGS)
+
+DownPour.o: DownPour.cpp
+	$(CPP) -c DownPour.cpp -o DownPour.o $(CXXFLAGS)
+
+Image.o: Image.cpp
+	$(CPP) -c Image.cpp -o Image.o $(CXXFLAGS)
+
+Font.o: Font.cpp
+	$(CPP) -c Font.cpp -o Font.o $(CXXFLAGS)
+
+GUILib.o: GUILib.cpp
+	$(CPP) -c GUILib.cpp -o GUILib.o $(CXXFLAGS)
+
+ImageManip.o: ImageManip.cpp
+	$(CPP) -c ImageManip.cpp -o ImageManip.o $(CXXFLAGS)
+
+TextWin.o: TextWin.cpp
+	$(CPP) -c TextWin.cpp -o TextWin.o $(CXXFLAGS)
+
+Timer.o: Timer.cpp
+	$(CPP) -c Timer.cpp -o Timer.o $(CXXFLAGS)
+
+Button.o: Button.cpp
+	$(CPP) -c Button.cpp -o Button.o $(CXXFLAGS)
+
+Text.o: Text.cpp
+	$(CPP) -c Text.cpp -o Text.o $(CXXFLAGS)
+
+GameData.o: GameData.cpp
+	$(CPP) -c GameData.cpp -o GameData.o $(CXXFLAGS)
+
+Settings.o: Settings.cpp
+	$(CPP) -c Settings.cpp -o Settings.o $(CXXFLAGS)
+
+System.o: System.cpp
+	$(CPP) -c System.cpp -o System.o $(CXXFLAGS)
+
+Network.o: Network.cpp
+	$(CPP) -c Network.cpp -o Network.o $(CXXFLAGS)
+
+Piece.o: Piece.cpp
+	$(CPP) -c Piece.cpp -o Piece.o $(CXXFLAGS)
+
+Scores.o: Scores.cpp
+	$(CPP) -c Scores.cpp -o Scores.o $(CXXFLAGS)
+
+DownPour_private.res: DownPour_private.rc 
+	$(WINDRES) -i DownPour_private.rc -I rc -o DownPour_private.res -O coff 

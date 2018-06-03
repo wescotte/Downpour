@@ -1,0 +1,7 @@
+The file format is as follows.
+8bpp BMP file (Paletted)
+0-126 are unchanged 
+127 is the transparent color
+128-255 are the modified colors based on the piece color
+
+For example if 128 R=128, G=128, B=128 and the piece was a RED then R=128 G=0, B=0
