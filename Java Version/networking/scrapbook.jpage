@@ -1,0 +1,16 @@
+
+// evaluating the next three lines will start the server up
+com.bestgroup.downpour.networking.DPServer server = new com.bestgroup.downpour.networking.DPServer();Thread t = new Thread(server);
+t.start();
+
+// the next few lines connect a client and send 10 game eventscom.bestgroup.downpour.networking.Client client = new com.bestgroup.downpour.networking.Client("127.0.0.1",5152);
+client.connect();
+for (int i = 0; i<10; ++i){ client.sendEvent(new com.bestgroup.downpour.networking.GameEvent("Another message"));
+}
+
+
+com.bestgroup.downpour.networking.DPServer server = new com.bestgroup.downpour.networking.DPServer();
+server.start();
+com.bestgroup.downpour.networking.Client client = new com.bestgroup.downpour.networking.Client("127.0.0.1",5152);
+client.connect();server.broadcastEvent(new com.bestgroup.downpour.gameevents.SendBoard(new Long(0)));
+com.bestgroup.downpour.gameevents.GameEvent ge = client.waitEvent();
